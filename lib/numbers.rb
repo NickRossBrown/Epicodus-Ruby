@@ -28,6 +28,17 @@ class Number
     elsif @number.to_s.length == 7
       return ones_values.fetch(@number.to_s[0]) + " million " +  ones_values.fetch(@number.to_s[1])+ " hundred " + tens_values.fetch(@number.to_s[2]) + "-" + ones_values.fetch(@number.to_s[3]) + " thousand " + ones_values.fetch(@number.to_s[4])+ " hundred " + tens_values.fetch(@number.to_s[5]) + "-" + ones_values.fetch(@number.to_s[6])
 
+    elsif @number.to_s.length == 8
+      if @number.to_s[0,2].to_i < 20
+        return  ones_values.fetch(@number.to_s[0, 2]) + " million "  +  ones_values.fetch(@number.to_s[2])+ " hundred " + tens_values.fetch(@number.to_s[3]) + "-" + ones_values.fetch(@number.to_s[4]) + " thousand " + ones_values.fetch(@number.to_s[5])+ " hundred " + tens_values.fetch(@number.to_s[6]) + "-" + ones_values.fetch(@number.to_s[7])
+      else
+        return tens_values.fetch(@number.to_s[0])+ "-" + ones_values.fetch(@number.to_s[1])+ " million " +  ones_values.fetch(@number.to_s[2])+ " hundred " + tens_values.fetch(@number.to_s[3]) + "-" + ones_values.fetch(@number.to_s[4]) + " thousand " + ones_values.fetch(@number.to_s[5])+ " hundred " + tens_values.fetch(@number.to_s[6]) + "-" + ones_values.fetch(@number.to_s[7])
+      end
+    elsif @number.to_s.length == 9
+      ones_values.fetch(@number.to_s[0])+ " hundred " + tens_values.fetch(@number.to_s[1]) + "-" + ones_values.fetch(@number.to_s[2]) + "million"
+
+
+
     end
 
 

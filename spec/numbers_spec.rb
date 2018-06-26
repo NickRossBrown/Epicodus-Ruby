@@ -39,4 +39,8 @@ describe ('Number#numbers') do
     num = Number.new(6576459)
     expect(num.number_to_word()).to(eq("six million five hundred seventy-six thousand four hundred fifty-nine"))
   end
+  it("returns words for 8 digits up to 99,999,999") do
+    num = Number.new(66576459)
+    expect(num.number_to_word()).to(eq("sixty-six million five hundred seventy-six thousand four hundred fifty-nine"))
+  end
 end
