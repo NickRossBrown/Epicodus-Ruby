@@ -8,10 +8,15 @@ class Number
     tens_values = {"2"=>"twenty", "3" =>"thirty", "4"=>"forty", "5"=>"fifty", "6"=>"sixty", "7"=>"seventy", "8"=>"eighty", "9"=>"ninety"}
     # binding.pry
 
+    # hundreds_values = {"1"=>"hundred", "2"=>"twohundred", "3" =>"thirty", "4"=>"forty", "5"=>"fifty", "6"=>"sixty", "7"=>"seventy", "8"=>"eighty", "9"=>"ninety"}
+
+
     if @number < 20
       return ones_values.fetch(@number.to_s)
     elsif @number.to_s.length == 2
-      return tens_values.fetch(@number.to_s[0]) + ones_values.fetch(@number.to_s[1])
+      return tens_values.fetch(@number.to_s[0]) + "-" + ones_values.fetch(@number.to_s[1])
+    elsif @number.to_s.length == 3
+      return ones_values.fetch(@number.to_s[0])+ " hundred " + tens_values.fetch(@number.to_s[1]) + "-" + ones_values.fetch(@number.to_s[2])
       # binding.pry
 
     end

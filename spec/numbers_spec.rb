@@ -11,8 +11,12 @@ describe ('Number#numbers') do
     num = Number.new(17)
     expect(num.number_to_word()).to(eq("seventeen"))
   end
-  it("returns a ONE for a number 1") do
+  it("returns a word for double digits over 19 to 99") do
     num = Number.new(43)
-    expect(num.number_to_word()).to(eq("fortythree"))
+    expect(num.number_to_word()).to(eq("forty-three"))
+  end
+  it("returns words for triple digits up to 999") do
+    num = Number.new(256)
+    expect(num.number_to_word()).to(eq("two hundred fifty-six"))
   end
 end
