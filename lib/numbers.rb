@@ -8,22 +8,30 @@ class Number
     tens_values = {"2"=>"twenty", "3" =>"thirty", "4"=>"forty", "5"=>"fifty", "6"=>"sixty", "7"=>"seventy", "8"=>"eighty", "9"=>"ninety"}
     # binding.pry
 
-    # hundreds_values = {"1"=>"hundred", "2"=>"twohundred", "3" =>"thirty", "4"=>"forty", "5"=>"fifty", "6"=>"sixty", "7"=>"seventy", "8"=>"eighty", "9"=>"ninety"}
-
-
     if @number < 20
       return ones_values.fetch(@number.to_s)
     elsif @number.to_s.length == 2
       return tens_values.fetch(@number.to_s[0]) + "-" + ones_values.fetch(@number.to_s[1])
     elsif @number.to_s.length == 3
       return ones_values.fetch(@number.to_s[0])+ " hundred " + tens_values.fetch(@number.to_s[1]) + "-" + ones_values.fetch(@number.to_s[2])
-      # binding.pry
+    elsif @number.to_s.length == 4
+      return ones_values.fetch(@number.to_s[0])+ " thousand " +ones_values.fetch(@number.to_s[1])+ " hundred " + tens_values.fetch(@number.to_s[2]) + "-" + ones_values.fetch(@number.to_s[3])
+    elsif @number.to_s.length == 5
+      if @number.to_s[0,2].to_i < 20
+        return ones_values.fetch(@number.to_s[0,2])+ " thousand " +ones_values.fetch(@number.to_s[2])+ " hundred " + tens_values.fetch(@number.to_s[3]) + "-" + ones_values.fetch(@number.to_s[4])
+      else
+        return tens_values.fetch(@number.to_s[0])+ "-" + ones_values.fetch(@number.to_s[1])+ " thousand " +ones_values.fetch(@number.to_s[2])+ " hundred " + tens_values.fetch(@number.to_s[3]) + "-" + ones_values.fetch(@number.to_s[4])
+      end
+    elsif @number.to_s.length == 6
+      return ones_values.fetch(@number.to_s[0])+ " hundred " + tens_values.fetch(@number.to_s[1]) + "-" + ones_values.fetch(@number.to_s[2]) + " thousand " + ones_values.fetch(@number.to_s[3])+ " hundred " + tens_values.fetch(@number.to_s[4]) + "-" + ones_values.fetch(@number.to_s[5])
+
+    elsif @number.to_s.length == 7
+      return ones_values.fetch(@number.to_s[0]) + " million " +  ones_values.fetch(@number.to_s[1])+ " hundred " + tens_values.fetch(@number.to_s[2]) + "-" + ones_values.fetch(@number.to_s[3]) + " thousand " + ones_values.fetch(@number.to_s[4])+ " hundred " + tens_values.fetch(@number.to_s[5]) + "-" + ones_values.fetch(@number.to_s[6])
 
     end
 
 
 
-    # @number.to_s.length
   end
-  # number_to_word(@number)
+
 end
