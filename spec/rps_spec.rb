@@ -19,4 +19,9 @@ describe ('play rock paper scissors') do
     game = RPS.new('paper')
     expect(game.wins?("scissors")).to(eq(false))
   end
+  it("returns draw if scissors is the object and scissors is the argument") do
+    game = RPS.new('scissors')
+    expect(game.wins?("scissors")).to(eq('draw'))
+  end
+
 end
