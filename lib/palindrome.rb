@@ -3,7 +3,12 @@ class Palindrome
    @phrase = phrase
  end
  def palindrome? ()
-   if @phrase == @phrase.reverse()
+   split_phrase = @phrase.split("")
+   reversed_array = []
+   split_phrase.each do |letter|
+     reversed_array.unshift(letter)
+   end
+   if split_phrase == reversed_array
      true
    else
      false
