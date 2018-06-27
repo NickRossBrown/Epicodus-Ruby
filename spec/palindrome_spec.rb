@@ -15,4 +15,8 @@ describe ('palindrome') do
     variable = Palindrome.new("12321")
     expect(variable.palindrome?()).to(eq(true))
   end
+  it ("check to see if multiple words") do
+    variable = Palindrome.new("a man a plan a canal panama")
+    expect(variable.palindrome?()).to(eq(true))
+  end
 end
