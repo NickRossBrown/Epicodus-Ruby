@@ -14,6 +14,8 @@ class RPS
       false
     elsif @player1 == 'scissors' && player2 == 'scissors'
       'draw'
+    elsif @player1 == 'paper' && player2 == 'paper'
+      'draw'
 
     end
   end
