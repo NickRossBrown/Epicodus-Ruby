@@ -11,4 +11,8 @@ describe ('palindrome') do
     variable = Palindrome.new("Reese")
     expect(variable.palindrome?()).to(eq(false))
   end
+  it ("check to see if an integer is a palindrome") do
+    variable = Palindrome.new("12321")
+    expect(variable.palindrome?()).to(eq(true))
+  end
 end
