@@ -8,7 +8,8 @@ class RPS
       false
     elsif @player1 == 'rock' && player2 == 'scissors'
       true
-
+    elsif @player1 == 'rock' && player2 == 'rock'
+      'draw'
     end
   end
 
