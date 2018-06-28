@@ -8,11 +8,16 @@ class Coins
     quarters = @change / 25
     total = @change % 25
     dimes = total / 10
+    total = total % 10
+    nickels = total /5 
     if quarters > 0
       coin_count_array.push(quarters.to_s + " quarter(s)")
     end
     if dimes > 0
       coin_count_array.push(" " + dimes.to_s + " dime(s)")
+    end
+    if nickels > 0
+      coin_count_array.push(" " + nickels.to_s + " nickel(s)")
     end
 
 
