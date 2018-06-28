@@ -4,6 +4,7 @@ class Prime
   end
 
   def create_array()
-    array = [1..@integer]
+    array = (1..@integer).to_a
 
+  end
 end
