@@ -15,6 +15,10 @@ describe ('#coins') do
     change = Coins.new(90)
     expect(change.count_coins()).to(eq("3 quarter(s) 1 dime(s) 1 nickel(s)"))
   end
+  it("counts the number of quarters, dimes, nickelsand pennies") do
+    change = Coins.new(94)
+    expect(change.count_coins()).to(eq("3 quarter(s) 1 dime(s) 1 nickel(s) and 4 pennies"))
+  end
 
 
 end
