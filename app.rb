@@ -5,10 +5,10 @@ require('./lib/triangle')
 require('pry')
 
 get ('/')do
-
+  @description = "This application will determine whether it is a triangle or not"
   erb(:input)
 end
-get ('/output')do
+post ('/output')do
   # @first_side = @side_one
   @side_one = params.fetch("side_one").to_i
   @side_two = params.fetch("side_two").to_i
