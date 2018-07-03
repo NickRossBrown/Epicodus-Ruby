@@ -7,8 +7,8 @@ describe('the riddle path', {:type => :feature}) do
   it('processes the user entry and returns whether riddle is answered correctly') do
     visit('/')
     fill_in('answer_one', :with => 'gravity')
-    # fill_in('side_two', :with => '5')
-    # fill_in('side_three', :with => '5')
+    fill_in('answer_two', :with => 'time')
+    fill_in('answer_three', :with => 'teeth')
     click_button('Submit')
     expect(page).to have_content('You pass!')
   end
