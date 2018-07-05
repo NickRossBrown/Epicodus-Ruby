@@ -1,18 +1,25 @@
-require 'sinata'
-require 'sinata/reloader'
+require 'sinatra'
+require 'sinatra/reloader'
 also_reload 'lib/**/*.rb'
-require('./lib/sphinx')
+require('./lib/item')
 require('pry')
 
-get ('/') do
-  # update description
-  @description = "the @description input in app.rb"
+get('/') do
+  @list = Item.all()
+  erb(:input)
 end
-post ('/output')do
-# update output_one
-  @output_one = params.fetch(@favorite_thing_one)
+
+post('/') do
+  name = params["name"]
+  item = Item.new(name)
+  item.save()
+  @list = Item.all()
+  erb(:input)
 end
- favorite = Favorites.new(@output_one)
-  @favorite_output_one = favorite.favorite_things()
-  erb(:output)
-end
+# post('/output') do
+#   name = params["name"]
+#   item = Item.new(name)
+#   item.save()
+#   @list = Item.all()
+#   erb(:output)
+# end
