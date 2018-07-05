@@ -4,7 +4,7 @@
   </div>
 
   <% @list.each do |item| %>
-    <p><%= item.name %></p>
+    <h4><a href="/items/<%= item.id %>"><%= item.name %></a></h4>
   <% end %>
 
   <div class="well">
@@ -15,6 +15,9 @@
         <input id="name" name="name" class="form-control" type="text">
       </div>
       <button type="submit" class="btn btn-primary">Go!</button>
+    </form>
+    <form class="form-group" method="post" action="/runClear">
+            <button type="submit" class="btn btn-warning" name="clear_btn" value="clear">Clear</button>
     </form>
   </div>
 </div>

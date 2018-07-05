@@ -12,7 +12,13 @@ class Item
     @@list
   end
 
-  def self.find(name)
+  def self.find(id)
+    item_id = id.to_i()
+    @@list.each do |item|
+      if item.id == item_id
+        return item
+      end
+    end
   end
 
   def save()
