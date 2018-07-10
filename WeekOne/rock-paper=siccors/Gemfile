@@ -1,0 +1,9 @@
+source 'https://rubygems.org'
+
+<<<<<<< HEAD
+gem 'rspec'
+gem 'pry'
+=======
+require 'pry'
+require 'rspec'
+>>>>>>> rub1-3
