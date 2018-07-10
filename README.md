@@ -1,9 +1,9 @@
 # Ruby Projects
 
-## [Week One](Week-One)
+## [Behavior-Driven Development with Ruby](Week-One)
 
-## [Week Two](Week-Two)
+## [Sinatra](Week-Two)
 
-## [Week Three](Week-Three)
+## [Ruby Database Basics](Week-Three)
 
-## [Week Four](Week-Four)
+## [Databases with Active Record](Week-Four)
