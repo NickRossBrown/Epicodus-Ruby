@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2><%= @description %></h2>
+  </div>
+  <div class="well">
+    <form action="/output" method="post">
+      <div class="form-group">
+        <label for="riddle_one">#1: What pulls you down and never lets go?</label>
+        <input type="text" class="form-control" name="answer_one" id="first_riddle">
+      </div>
+      <div class="form-group">
+        <label for="riddle_two">#2:This thing all things devours: Birds, beasts, trees, flowers; Gnaws iron, bites steel; Grinds hard stones to meal; Slays king, ruins town, And beats high mountain down?</label>
+        <input type="text" class="form-control" name="answer_two" id="second_riddle">
+      </div>
+      <div class="form-group">
+        <label for="riddle_three">#3: Thirty white horses on a red hill, First they champ, Then they stamp, Then they stand still.</label>
+        <input type="text" class="form-control" name="answer_three" id="third_riddle">
+      </div>
+      <!-- <div class="form-group">
+        <label for="side_two">Question One</label>
+        <input type="text" class="form-control" name="riddle_two" id="second_riddle">
+      </div>
+      <div class="form-group">
+        <label for="riddle_three">Question One</label>
+        <input type="text" class="form-control" name="riddle_three" id="third_riddle">
+      </div> -->
+      <button type="submit" class="btn btn-primary" >Submit</button>
+    </form>
+  </div>
+</div>
