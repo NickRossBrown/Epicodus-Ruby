@@ -1,4 +1,4 @@
-# Anagrams and Antigrams
+# Triangle Checker
 
 #### Epicodus Ruby: 07/02/2018
 
