@@ -23,7 +23,7 @@ post("/lists") do
   name = params.fetch("name")
   list = List.new({:name => name, :id => nil})
   list.save()
-  erb(:success)
+  erb(:list_success)
  end
 
 # listens for click event on index.erb for /lists and directs to lists.erb
@@ -36,4 +36,13 @@ post("/lists") do
  get("/lists/:id") do
    @list = List.find(params.fetch("id").to_i())
    erb(:list)
+ end
+
+ post("/tasks") do
+   description = params.fetch("description")
+   list_id = params.fetch("list_id").to_i()
+   @list = List.find(list_id)
+   @task = Task.new({:description => description, :list_id => list_id})
+   @task.save()
+   erb(:task_success)
  end
