@@ -1,10 +1,10 @@
-## ** Week 2 projects
+# ** Week 2 projects
 
-#  Triganle-Checker
+##  [Triganle-Checker](triangle-checker)
 
-#   Sphinx
+##  [Sphinx](sphinx)
 
-#  Favorite-Things
+##  [Favorite-Things](favorite-things)
 
 
 
