@@ -4,8 +4,9 @@ require('./lib/task')
 require('./lib/list')
 also_reload('lib/**/*.rb')
 require("pg")
+require 'pry'
 
-DB = PG.connect({:dbname => "to_do_test"})
+DB = PG.connect({:dbname => "to_do"})
 # change DB back to to_do after testing
 
 # home page
@@ -18,9 +19,10 @@ get("/lists/new") do
   erb(:list_form)
 end
 
-# listens for a form submission from list_form.erb and posts to success.erb
+# listens for a form submission from list_form.erb and posts to list_success.erb
 post("/lists") do
   name = params.fetch("name")
+  # binding.pry
   list = List.new({:name => name, :id => nil})
   list.save()
   erb(:list_success)
@@ -44,5 +46,6 @@ post("/lists") do
    @list = List.find(list_id)
    @task = Task.new({:description => description, :list_id => list_id})
    @task.save()
+   binding.pry
    erb(:task_success)
  end

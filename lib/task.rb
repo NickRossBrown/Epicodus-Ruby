@@ -20,7 +20,7 @@ class Task
 
   def save
     # grabs the instance info and saves it into the table in the database
-      DB.exec("INSERT INTO tasks (description, list_id) VALUES ('#{@description}', #{@list_id});")
+      DB.exec("INSERT INTO tasks (task, list_id) VALUES ('#{@description}', #{@list_id});")
     end
 
   def ==(another_task)

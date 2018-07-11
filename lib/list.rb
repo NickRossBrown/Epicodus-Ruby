@@ -10,7 +10,7 @@ class List
     returned_lists = DB.exec("SELECT * FROM lists;")
     lists = []
     returned_lists.each() do |list|
-      name = list.fetch("name")
+      name = list.fetch("list")
       id = list.fetch("id").to_i()
       lists.push(List.new({:name => name, :id => id}))
     end
@@ -18,7 +18,7 @@ class List
   end
 
   def save
-    result = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
+    result = DB.exec("INSERT INTO lists (list) VALUES ('#{@name}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
   end
 
@@ -26,7 +26,7 @@ class List
     list_tasks = []
     tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{self.id()};")
     tasks.each() do |task|
-      description = task.fetch("description")
+      description = task.fetch("task")
       list_id = task.fetch("list_id").to_i()
       list_tasks.push(Task.new({:description => description, :list_id => list_id}))
     end
