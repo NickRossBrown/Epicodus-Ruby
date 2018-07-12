@@ -24,10 +24,11 @@ end
 
 describe("#update") do
   it("updates the name of book in the book database") do
-    book = Book.new({:name => "Huck Fin", :id => nil})
+    book = Book.new({:author => "Huck Fin"})
     book.save()
-    movie.update({:name => "I ROBOT"})
-    expect(book.name()).to(eq("I ROBOT"))
+    book.update({:author => "John"})
+    # book.update({:name => "I ROBOT"})
+    expect(book.author()).to(eq("John"))
   end
 end
 

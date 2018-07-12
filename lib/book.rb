@@ -13,7 +13,7 @@ class Book
   end
 
   def defaults
-    {:id=>0,:author => "NONE", :title => "NONE", :available=> false, :return_date =>"2018-09-09", :patron_id => 0}
+    {:id=>0,:author => "none", :title => "none", :available=> false, :return_date =>"2018-09-09", :patron_id => 0}
   end
 
   def self.all
@@ -31,9 +31,6 @@ class Book
     books
   end
 
-  # def self.all
-  #   books = []
-  # end
   def save
     result = DB.exec("INSERT INTO book (title, author, available, patron_id, return_date) VALUES ('#{@title}', '#{@author}', '#{@available}', #{@patron_id}, '#{@return_date}') RETURNING id;")
     @id = result.first().fetch("id").to_i()
@@ -46,5 +43,18 @@ class Book
   def delete
     DB.exec("DELETE FROM book WHERE id = '#{@id}';")
   end
+
+  def update (attributes)
+
+    @author = attributes.fetch(:author, @author)
+    @title = attributes.fetch(:title, @title)
+    @available = attributes.fetch(:available, @available)
+    @return_date = attributes.fetch(:return_date, @return_date)
+    @patron_id = attributes.fetch(:patron_id, @patron_id)
+    @id = self.id()
+    DB.exec("UPDATE book SET author = '#{@author}', title = '#{@title}',  available = '#{@available}', return_date = '#{@return_date}', patron_id = '#{@patron_id}'  WHERE id = #{@id};")
+
+  end
+
 
 end
