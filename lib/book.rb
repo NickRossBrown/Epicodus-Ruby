@@ -45,7 +45,18 @@ class Book
     end
     books
   end
+  def search1(parameter)
+    results = DB.exec("SELECT * FROM book WHERE author = '#{parameter}' OR title LIKE '%#{parameter}%';")
+    books = []
+  
+    results.each() do |book|
 
+      id = book.fetch("id").to_i()
+
+      books.push(id)
+    end
+    books
+  end
   def save
     result = DB.exec("INSERT INTO book (title, author, available, patron_id, return_date) VALUES ('#{@title}', '#{@author}', '#{@available}', #{@patron_id}, '#{@return_date}') RETURNING id;")
     @id = result.first().fetch("id").to_i()

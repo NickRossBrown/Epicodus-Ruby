@@ -30,8 +30,17 @@ end
 
 post ('/library_books') do
   @books = Book.all
+  erb(:all_books)
+end
+delete ('/library_books') do
 
-  erb(:library_books)
+  title = params.fetch("title")
+  @books = Book.all
+  book = Book.new({:title=>title})
+  del_book = book.search1(title)
+  # del_book_id = del_book.fetch("id")
+binding.pry
+  erb(:all_books)
 end
 
 get ('/patron') do
