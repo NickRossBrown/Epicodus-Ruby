@@ -5,21 +5,21 @@
 **By Eric Shull, Nick Brown**
 
 ## Description
+- A website application that acts as a catalog to a library's inventory. Books are listed and stored in an sql database. The application catalogs the library's books and a patron's book check history.
 
-
+### Project Setup/Contribution Requirements
+- Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Please make sure to update tests as appropriate.
 
 ## Setup/Installation Requirements
-
-### I. Project Setup/Contribution Requirements
-
+```
 
 Clone the repo
 Make a new branch
 Commit and push your changes
 Create a PR
+```
 
-
-### II. View/Build Project
+### View/Build Project
 
 
 
