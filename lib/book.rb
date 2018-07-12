@@ -13,7 +13,7 @@ class Book
   end
 
   def defaults
-    {:id=>0,:author => "NONE", :title => "NONE", :available=> false, :return_date =>"0-0-0", :patron_id => 0}
+    {:id=>0,:author => "NONE", :title => "NONE", :available=> false, :return_date =>"2018-09-09", :patron_id => 0}
   end
 
   def self.all
@@ -41,6 +41,10 @@ class Book
 
   def ==(another_book)
     self.title().==(another_book.title()).&(self.id().==(another_book.id()))
+  end
+
+  def delete
+    DB.exec("DELETE FROM book WHERE id = '#{@id}';")
   end
 
 end
