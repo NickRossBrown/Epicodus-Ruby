@@ -13,13 +13,28 @@ class Book
   end
 
   def defaults
-    {:id=>0,:author => "none", :title => "none", :available=> false, :return_date =>"2018-09-09", :patron_id => 0}
+    {:id=>0,:author => "none", :title => "none", :available=> "t", :return_date =>"2018-09-09", :patron_id => 0}
   end
 
   def self.all
     all_books = DB.exec("SELECT * FROM book;")
     books = []
     all_books.each() do |book|
+      title = book.fetch("title")
+      id = book.fetch("id").to_i()
+      author = book.fetch("author")
+      available = book.fetch("available")
+      patron_id = book.fetch("patron_id").to_i
+      return_date = book.fetch("return_date")
+      books.push(Book.new({:title => title, :id => id, :author => author,:available=> available, :return_date =>return_date, :patron_id => patron_id}))
+    end
+    books
+  end
+
+  def search(parameter)
+    results = DB.exec("SELECT * FROM book WHERE author = '#{parameter}' OR title LIKE '%#{parameter}%';")
+    books = []
+    results.each() do |book|
       title = book.fetch("title")
       id = book.fetch("id").to_i()
       author = book.fetch("author")
@@ -55,6 +70,8 @@ class Book
     DB.exec("UPDATE book SET author = '#{@author}', title = '#{@title}',  available = '#{@available}', return_date = '#{@return_date}', patron_id = '#{@patron_id}'  WHERE id = #{@id};")
 
   end
+
+
 
 
 end

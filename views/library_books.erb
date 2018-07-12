@@ -1,0 +1,26 @@
+<div class="container card">
+  <h1>Hello and Welcome to the Librarian page</h1>
+  <form class="form-group" action="/library_books" method="post" name="show_books">
+
+
+    <button type="submit" class="btn btn-info"name="button"></button>
+  </form>
+
+  <a href="/librarian">View Book Database</a>
+
+  <button type="button" name="button">
+  <div class="container">
+    <% @books.each do |book| %>
+    <h3>TITLE: <%= book.title%></h3>
+    <h3>AUTHOR: <%= book.author%></h3>
+    <h5>available <%= book.available %></h5>
+    <h5>who checked out<%= book.patron_id%></h5>
+    <h5>return date <%= book.return_date%></h5>
+    <h5>book id <%= book.id%></h5>
+    <% end %>
+  </div>
+
+
+    <a href="/">Return Home</a>
+  </button>
+</div>
