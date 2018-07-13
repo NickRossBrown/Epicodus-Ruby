@@ -45,10 +45,24 @@ class Book
     end
     books
   end
-  def search1(parameter)
+
+  def find_by_author(author)
+  find_book = DB.exec("SELECT * FROM book WHERE author = '#{author}';")
+  @title=params.fetch("title")
+  @id = params.fetch("id").to_i()
+  @author = params.fetch("author")
+  @available = params.fetch("available")
+  @patron_id = params.fetch("patron_id").to_i
+  @return_date = params.fetch("return_date")
+  @id = params.fetch("id").to_i()
+  # Book.new({:title => title, :id => id, :author => author,:available=> available, :return_date =>return_date, :patron_id => patron_id})
+  # puts @id
+  end
+
+  def search_id(parameter)
     results = DB.exec("SELECT * FROM book WHERE author = '#{parameter}' OR title LIKE '%#{parameter}%';")
     books = []
-  
+
     results.each() do |book|
 
       id = book.fetch("id").to_i()

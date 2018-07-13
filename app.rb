@@ -37,8 +37,8 @@ delete ('/library_books') do
   title = params.fetch("title")
   @books = Book.all
   book = Book.new({:title=>title})
-  del_book = book.search1(title)
-  # del_book_id = del_book.fetch("id")
+  @id = book.search_id(title)
+  book.delete
 binding.pry
   erb(:all_books)
 end
