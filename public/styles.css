@@ -1,3 +1,7 @@
 body {
   background-color: #ffffb3;
 }
+
+.container {
+  width: 100%;
+}
