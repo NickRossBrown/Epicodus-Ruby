@@ -1,0 +1,9 @@
+
+  <% @questions.each() do |question| %>
+    <li><%= question.question_text %> <a href="/question/<% question.id %>/edit">Questions</a></li>
+  <% end %>
+
+
+<form class="form-inline" method="get" action="/">
+      <button type="submit" class="btn btn-danger" name="clear_btn">Back</button>
+</form>
